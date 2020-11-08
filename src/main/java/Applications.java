@@ -29,7 +29,7 @@ public class Applications {
 
         ints[2][0] = 5;
         ints[2][1] = 6;
-        System.out.println("====BEGIN====");
+
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
