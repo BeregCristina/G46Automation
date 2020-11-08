@@ -1,4 +1,4 @@
-package additional;
+package math;
 
 public class Calc {
 
