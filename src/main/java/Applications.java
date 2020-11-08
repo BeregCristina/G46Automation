@@ -19,14 +19,6 @@ public class Applications {
 
 
     public static void main(String[] args) {
-/*        LOG.fatal("fatal");
-        LOG.error("error");
-        LOG.warn("warn");
-        LOG.info("Some");
-        LOG.debug("debug");
-        LOG.trace("trace");*/
-
-
 
 
         int[][] ints = new int[3][2];
