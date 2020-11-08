@@ -30,7 +30,7 @@ public class Applications {
 
         ints[2][0] = 5;
         ints[2][1] = 6;
-        System.out.println("====Start====");
+        System.out.println("====BEGIN====");
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
@@ -51,13 +51,13 @@ public class Applications {
 
         //List<User> users = new ArrayList<>();
 
-        User admin = new User("admin", "1234qweqwe");
+        User admin = new User("administrator", "1234qweqwe");
         User businessA = new User("businessA", "1235678999qweqwe");
         User customer = new User("customer", "123qweqwe");
 
         User availableUser = new User(UserStatus.AVAILABLE);
 
-        userMap.put("admin", admin);
+        userMap.put("administrator", admin);
         userMap.put("businessA", businessA);
         userMap.put("customer", customer);
 
