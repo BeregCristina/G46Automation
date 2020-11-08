@@ -15,8 +15,6 @@ public class Applications {
     private final static Logger LOG = LogManager.getLogger("Our Main Class");
 
 
-
-
     public static void main(String[] args) {
 
 
