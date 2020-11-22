@@ -18,8 +18,8 @@ public class LoginPage extends BasePage {
     private WebElement signInButton;
 
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage(WebDriver driver, String title) {
+        super(driver, title);
         PageFactory.initElements(this.driver, this);
     }
 

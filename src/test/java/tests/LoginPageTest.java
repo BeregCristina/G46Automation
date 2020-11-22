@@ -1,12 +1,17 @@
 package tests;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPageObject;
+import pages.MainPage;
+
+import java.util.NoSuchElementException;
 
 public class LoginPageTest extends BaseTest {
 
     private LoginPageObject page;
+    public MainPage page2;
     private String errorMessage;
     private String errorMessage2;
 
@@ -20,26 +25,41 @@ public class LoginPageTest extends BaseTest {
 
     @Test
     public void negativeAuthTest() {
-        page.checkAuthField()
-                .login("admin", "admin")
+        page.checkAuthFields()
+                .loginNegative("admin", "admin")
                 .validateErrorMessage(errorMessage)
                 .returnToLoginPage()
-                .login("login", "abc")
+                .loginNegative("login", "abc")
                 .validateErrorMessage2(errorMessage2);
     }
 
     @Test
+    public void checkPositiveLogin() {
+        try {
+            page.checkAuthFields()
+                    .login(System.getProperty("login"), System.getProperty("password"));
+        } catch (NoSuchElementException e) {
+            Assert.fail(e.getMessage());
+        }
+    }
+
+    @Test
     public void positiveE2ETest() throws InterruptedException {
-        page.checkAuthField()
-                .login("BeregCristina", "Kris!0703")
+        page.checkAuthFields()
+                .login(System.getProperty("login"), System.getProperty("password"))
                 .isAuthSuccessful("Search or jump to…")
                 .enterRepositoryNameForSearch("G46Automation")
                 .goToFoundRepository()
                 .openPomXml()
-                .checkVersion("3.141.59");
-
-        page.logOut();
+                .checkVersion("3.141.59")
+                .logOut();
+        //page2.logOut();
     }
 
+/*    @Test
+    public void showSystemVars() {
+        System.out.println(System.getProperty("login"));
+        System.out.println(System.getProperty("password"));
+    }*/
 
 }

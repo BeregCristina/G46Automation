@@ -1,7 +1,6 @@
 package tests;
 
 import org.junit.Before;
-import org.junit.Test;
 import pages.LoginPageObject;
 
 
@@ -15,8 +14,8 @@ public class SomeTest extends BaseTest {
         page = new LoginPageObject(driver);
     }
 
-    @Test
+    //@Test
     public void ourTest() {
-        page.checkAuthField();
+        page.checkAuthFields();
     }
 }
