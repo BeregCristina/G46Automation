@@ -1,10 +1,14 @@
 package pages;
 
+import helpers.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import static helpers.ColorPrinter.printColorMessage;
+import static helpers.ColorPrinter.printMessageInYellow;
 
 
 public abstract class BasePage {
@@ -23,15 +27,17 @@ public abstract class BasePage {
         this.driver = driver;
         this.title = title;
         this.log = LogManager.getLogger(this.title);
+        printColorMessage("New page object is created for:" + title + ", class: " +
+                this.getClass().getName(), log, Level.DEBUG);
     }
 
     public void logOut() throws InterruptedException {
-        log.info("Logging out...");
+        printColorMessage("Logging out...", log, Level.DEBUG);
         Thread.sleep(1000);
         driver.findElement(userLabel).click();
         driver.findElement(signOut).click();
         Assert.assertTrue(driver.findElement(signInForm).isDisplayed());
         Assert.assertEquals(driver.findElement(textH1).getText(), "Built for developers");
-        log.info("Logout is finished!");
+        printColorMessage("Logout is finished!", log, Level.DEBUG);
     }
 }

@@ -1,5 +1,6 @@
 package pages;
 
+import helpers.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -8,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+
+import static helpers.ColorPrinter.printColorMessage;
 
 public class MainPage extends BasePage {
 
@@ -22,31 +25,37 @@ public class MainPage extends BasePage {
     }
 
     public MainPage isAuthSuccessful(String name) {
-        log.info("Check successful authorization...");
+        printColorMessage("Check successful authorization...", log, Level.INFO);
         Assert.assertEquals(name, driver.findElement(searchField).getAttribute("placeholder"));
-        log.info("Check is finished!");
+        printColorMessage("Check is finished!", log, Level.INFO);
         return this;
     }
 
     public MainPage enterRepositoryNameForSearch(String repository) throws InterruptedException {
-        log.info("Start searching for the repository....");
+        printColorMessage("Start searching for the repository....", log, Level.INFO);
         driver.findElement(searchField).sendKeys(repository);
         Thread.sleep(1000);
-        log.info("Searching is finished!");
+        printColorMessage("Searching is finished!", log, Level.INFO);
         return this;
     }
 
     public RepositoryPage goToFoundRepository() {
-        log.info("Go to repository...");
+        printColorMessage("Go to repository...", log, Level.INFO);
         List<WebElement> list = driver.findElements(searchResultList);
 
         if (list.isEmpty())
             Assert.fail("Search result is empty!!!");
         else {
-            list.get(0).click();
+            for (WebElement l:list) {
+                if (l.getText().contains("BeregCristina")){
+                    printColorMessage("Opening the reporitory:" + l.getText(), log, Level.DEBUG);
+                    l.click();
+                    break;
+                }
+            }
         }
         //Assert.assertNotNull("Search result is empty!!!",list);
-        log.info("Repository is opened!");
+        printColorMessage("Repository is opened!", log, Level.INFO);
         return new RepositoryPage(driver);
     }
 
@@ -62,5 +71,10 @@ public class MainPage extends BasePage {
         for (WebElement w : list) {
             Assert.assertTrue("There is at least 1 element which is not fit search criteria!!!", w.getText().contains(text));
         }
+    }
+
+    public ProjectPage openOurProject(){
+        driver.get("https://github.com/BeregCristina/G46Automation");
+        return new ProjectPage(driver);
     }
 }

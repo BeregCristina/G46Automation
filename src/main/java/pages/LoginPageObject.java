@@ -1,15 +1,14 @@
 package pages;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import helpers.Level;
 import org.junit.Assert;
-import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import java.sql.Time;
-import java.util.List;
+import java.util.logging.Logger;
+
+import static helpers.ColorPrinter.*;
+import static helpers.Level.INFO;
 
 public class LoginPageObject extends BasePage {
 
@@ -41,39 +40,39 @@ public class LoginPageObject extends BasePage {
     }
 
     public LoginPageObject loginNegative(String login, String password) {
-        log.info("Try to Login (with INVALID credentials)...");
+        printMessageInYellow("Try to Login (with INVALID credentials)...", log);
         driver.findElement(loginField).sendKeys(login);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(signInButton).click();
-        log.info("Log in is finished! Access is not allowed!");
+        printMessageInYellow("Log in is finished! Access is not allowed!", log);
         return new LoginPageObject(driver);
     }
 
     public LoginPageObject checkAuthFields() {
-        log.info("Check the presence of fields...");
+        printColorMessage("Check the presence of fields...",log, INFO);
         Assert.assertTrue("There is no login field", this.driver.findElement(loginField).isDisplayed());
         Assert.assertTrue("There is no password field", this.driver.findElement(passwordField).isDisplayed());
         Assert.assertTrue("There IS no Sign In button field", this.driver.findElement(signInButton).isDisplayed());
-        log.info("Fields are found!");
+        printColorMessage("Fields are found!", log, INFO);
         return this;
         //login.shouldBe(Condition.visible).sendKeys("my login");
     }
 
     public LoginPageObject returnToLoginPage() {
-        log.info("Returning to Login Page...");
+        printColorMessage("Returning to Login Page...", log, INFO);
         driver.navigate().back();
-        log.info("You are on the Login Page!");
+        printColorMessage("You are on the Login Page!", log, INFO);
         return new LoginPageObject(driver);
     }
 
 
     //---------------homework-------------------------------------------------------------------------------------------
     public MainPage login(String login, String password) {
-        log.info("Try to Login (with VALID credentials)...");
+        printColorMessage("Try to Login (with VALID credentials)...", log, INFO);
         driver.findElement(loginField).sendKeys(login);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(signInButton).click();
-        log.info("Login is finished SUCCESSFULLY");
+        printColorMessage("Login is finished SUCCESSFULLY", log, INFO);
         return new MainPage(driver);
     }
 

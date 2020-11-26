@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,6 +8,8 @@ import pages.LoginPageObject;
 import pages.MainPage;
 
 import java.util.NoSuchElementException;
+
+import static helpers.ColorPrinter.printMessageInYellow;
 
 public class LoginPageTest extends BaseTest {
 
@@ -17,6 +20,7 @@ public class LoginPageTest extends BaseTest {
 
     @Before
     public void setPage() {
+        printMessageInYellow("Test is started!");
         this.page = new LoginPageObject(driver);
         this.errorMessage = "There have been several failed attempts to sign in from " +
                 "this account or IP address. Please wait a while and try again later.";
@@ -54,6 +58,12 @@ public class LoginPageTest extends BaseTest {
                 .checkVersion("3.141.59")
                 .logOut();
         //page2.logOut();
+    }
+
+    @After
+    public void tearDown(){
+        printMessageInYellow("Test is finished!");
+        driver.quit();
     }
 
 /*    @Test
