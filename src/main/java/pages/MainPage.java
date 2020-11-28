@@ -39,15 +39,16 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public RepositoryPage goToFoundRepository() {
+    public RepositoryPage goToFoundRepository() throws InterruptedException {
         printColorMessage("Go to repository...", log, Level.INFO);
+        Thread.sleep(1000);
         List<WebElement> list = driver.findElements(searchResultList);
 
         if (list.isEmpty())
             Assert.fail("Search result is empty!!!");
         else {
-            for (WebElement l:list) {
-                if (l.getText().contains("BeregCristina")){
+            for (WebElement l : list) {
+                if (l.getText().contains("BeregCristina")) {
                     printColorMessage("Opening the reporitory:" + l.getText(), log, Level.DEBUG);
                     l.click();
                     break;
@@ -73,8 +74,10 @@ public class MainPage extends BasePage {
         }
     }
 
-    public ProjectPage openOurProject(){
+    public ProjectPage openOurProject() {
+        log.info("Opening our project...");
         driver.get("https://github.com/BeregCristina/G46Automation");
+        log.info("Project is opened!");
         return new ProjectPage(driver);
     }
 }

@@ -49,7 +49,7 @@ public class LoginPageObject extends BasePage {
     }
 
     public LoginPageObject checkAuthFields() {
-        printColorMessage("Check the presence of fields...",log, INFO);
+        printColorMessage("Check the presence of fields...", log, INFO);
         Assert.assertTrue("There is no login field", this.driver.findElement(loginField).isDisplayed());
         Assert.assertTrue("There is no password field", this.driver.findElement(passwordField).isDisplayed());
         Assert.assertTrue("There IS no Sign In button field", this.driver.findElement(signInButton).isDisplayed());
@@ -68,11 +68,11 @@ public class LoginPageObject extends BasePage {
 
     //---------------homework-------------------------------------------------------------------------------------------
     public MainPage login(String login, String password) {
-        printColorMessage("Try to Login (with VALID credentials)...", log, INFO);
+        printColorMessage("Login (with VALID credentials)...", log, INFO);
         driver.findElement(loginField).sendKeys(login);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(signInButton).click();
-        printColorMessage("Login is finished SUCCESSFULLY", log, INFO);
+        printColorMessage("Login is finished!", log, INFO);
         return new MainPage(driver);
     }
 

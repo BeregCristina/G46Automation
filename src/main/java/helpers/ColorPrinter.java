@@ -29,6 +29,6 @@ public class ColorPrinter {
     }
 
     public static void printInPurple(String message, Logger logger) {
-        logger.info(PURPLE_BOLD + WHITE_BACKGROUND + message + RESET);
+        logger.info(PURPLE_BOLD + message + RESET);
     }
 }

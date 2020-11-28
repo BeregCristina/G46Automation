@@ -32,12 +32,19 @@ public abstract class BasePage {
     }
 
     public void logOut() throws InterruptedException {
-        printColorMessage("Logging out...", log, Level.DEBUG);
+        printColorMessage("Logging out...", log, Level.INFO);
         Thread.sleep(1000);
         driver.findElement(userLabel).click();
         driver.findElement(signOut).click();
         Assert.assertTrue(driver.findElement(signInForm).isDisplayed());
         Assert.assertEquals(driver.findElement(textH1).getText(), "Built for developers");
-        printColorMessage("Logout is finished!", log, Level.DEBUG);
+        printColorMessage("Logout is finished!", log, Level.INFO);
+    }
+
+    public void logOut(boolean check) {
+        printColorMessage("Logging out without a check...", log, Level.INFO);
+        driver.findElement(userLabel).click();
+        driver.findElement(signOut).click();
+        printColorMessage("Logout is finished!", log, Level.INFO);
     }
 }
