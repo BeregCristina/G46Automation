@@ -1,4 +1,4 @@
-package additional;
+package old.additional;
 
 public enum UserStatus {
 

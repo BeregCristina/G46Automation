@@ -1,5 +1,7 @@
-import additional.*;
-import models.User;
+package old;
+
+import old.additional.*;
+import old.models.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

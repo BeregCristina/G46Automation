@@ -1,4 +1,4 @@
-package math;
+package old.math;
 
 public class Calc {
 

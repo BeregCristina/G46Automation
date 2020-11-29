@@ -1,4 +1,4 @@
-package additional;
+package old.additional;
 
 public class Variables {
     public int a = 10;
@@ -6,7 +6,7 @@ public class Variables {
 
     @Override
     public String toString() {
-        return "additional.Variables{" +
+        return "old.additional.Variables{" +
                 "a=" + a +
                 ", hello='" + hello + '\'' +
                 '}';
