@@ -34,14 +34,19 @@ public class IssueCreationPage extends BasePage {
 
         Assert.assertTrue(driver.findElement(labelsShowButton).isDisplayed());
         driver.findElement(labelsShowButton).click();
-
-        List<WebElement> labels = driver.findElements(issueLabels);
+/*        List<WebElement> labels = driver.findElements(issueLabels);
         for (WebElement label : labels) {
             if (testLabels.contains(label.getText())) {
                 Assert.assertTrue(label.isDisplayed());
                 label.click();
             }
-        }
+        }*/
+
+        driver.findElements(issueLabels)
+                .stream()
+                .filter(label -> testLabels.contains(label.getText()))
+                .forEach(WebElement::click);
+
         Actions actions = new Actions(driver);
         WebElement elementLocator = driver.findElement(issueBodyField);
         actions.doubleClick(elementLocator).perform();

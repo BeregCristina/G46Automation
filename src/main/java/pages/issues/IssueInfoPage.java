@@ -35,12 +35,20 @@ public class IssueInfoPage extends BasePage {
             log.debug("Check description of the created issue...");
             Assert.assertEquals(body, driver.findElement(description).getText());
 
-            List<WebElement> labelElements = driver.findElements(labels);
+/*            List<WebElement> labelElements = driver.findElements(labels);
             for (WebElement label : labelElements) {
                 log.debug("Check label: " + label.getText());
                 Assert.assertTrue(testLabels.contains(label.getText()));
                 testLabels.remove(label.getText());
-            }
+            }*/
+
+            driver.findElements(labels)
+                    .forEach(label -> {
+                        log.debug("Check label: " + label.getText());
+                        Assert.assertTrue(testLabels.contains(label.getText()));
+                        testLabels.remove(label.getText());
+                    });
+
             //next Assert doesn't work
             //Assert.assertTrue(testLabels.isEmpty());
         } catch (NoSuchElementException n) {
