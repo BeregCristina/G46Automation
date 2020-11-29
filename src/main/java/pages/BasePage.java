@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static helpers.ColorPrinter.printColorMessage;
 import static helpers.ColorPrinter.printMessageInYellow;
@@ -23,12 +24,18 @@ public abstract class BasePage {
     private final By signInForm = By.xpath("//form[@class='home-hero-signup text-gray-dark js-signup-form js-signup-form-submit']");
     private final By textH1 = By.xpath("//h1[@class='h000-mktg text-white lh-condensed-ultra mb-3']");
 
+    protected WebDriverWait webDriverWait_10, webDriverWait_15, webDriverWait_20;
+
     public BasePage(WebDriver driver, String title) {
         this.driver = driver;
         this.title = title;
         this.log = LogManager.getLogger(this.title);
         printColorMessage("New page object is created for:" + title + ", class: " +
                 this.getClass().getName(), log, Level.DEBUG);
+
+        webDriverWait_10 = new WebDriverWait(driver, 10);
+        webDriverWait_15 = new WebDriverWait(driver, 15);
+        webDriverWait_20 = new WebDriverWait(driver, 20);
     }
 
     public void logOut() throws InterruptedException {

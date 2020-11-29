@@ -4,6 +4,7 @@ import helpers.Level;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.code.ProjectPage;
 
 import static helpers.ColorPrinter.printColorMessage;
@@ -24,11 +25,7 @@ public abstract class BaseAuthorizedPage extends BasePage {
         printColorMessage("Start searching for the SPECIFIC repository....", log, Level.INFO);
         driver.findElement(searchField).click();
         driver.findElement(searchField).sendKeys(projectName);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            log.error(e);
-        }
+        webDriverWait_10.until(ExpectedConditions.elementToBeClickable(searchResults));
         driver.findElements(searchResults).get(1).click();
         printColorMessage("Searching is finished!", log, Level.INFO);
         return new ProjectPage(driver);

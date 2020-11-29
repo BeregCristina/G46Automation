@@ -4,6 +4,7 @@ import helpers.Level;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.logging.Logger;
 
@@ -69,6 +70,7 @@ public class LoginPageObject extends BaseAuthorizedPage {
     //---------------homework-------------------------------------------------------------------------------------------
     public MainPage login(String login, String password) {
         printColorMessage("Login (with VALID credentials)...", log, INFO);
+        webDriverWait_10.until(ExpectedConditions.elementToBeClickable(loginField));
         driver.findElement(loginField).sendKeys(login);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(signInButton).click();
