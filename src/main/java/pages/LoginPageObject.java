@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import static helpers.ColorPrinter.*;
 import static helpers.Level.INFO;
 
-public class LoginPageObject extends BasePage {
+public class LoginPageObject extends BaseAuthorizedPage {
 
     private final static String TITLE = "Authorization Page";
 

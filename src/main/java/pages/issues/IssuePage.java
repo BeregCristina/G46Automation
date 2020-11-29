@@ -3,9 +3,10 @@ package pages.issues;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pages.BaseAuthorizedPage;
 import pages.BasePage;
 
-public class IssuePage extends BasePage {
+public class IssuePage extends BaseAuthorizedPage {
 
     public static final String TITLE = "Page of Creation New Issue";
 

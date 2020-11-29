@@ -25,7 +25,7 @@ public class IssueCreationPage extends BasePage {
     private final By labelsShowButton = By.id("labels-select-menu");
 
 
-    public IssueInfoPage createNewIssue(String title, String body, List<String> testLabels) throws InterruptedException {
+    public IssueInfoPage createNewIssue(String title, String body, List<String> testLabels) {
         log.info("Creating of new issue ...");
         Assert.assertTrue(driver.findElement(issueTitleField).isDisplayed());
         driver.findElement(issueTitleField).sendKeys(title);
@@ -42,7 +42,6 @@ public class IssueCreationPage extends BasePage {
                 label.click();
             }
         }
-        Thread.sleep(3000);
         Actions actions = new Actions(driver);
         WebElement elementLocator = driver.findElement(issueBodyField);
         actions.doubleClick(elementLocator).perform();

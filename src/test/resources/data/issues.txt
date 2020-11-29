@@ -1,2 +1,1 @@
-File test title1, text body, bug, good first issue
-File test title2, text body, bug, good
+Automated Title2, Please ignore me!, bug, good first issue

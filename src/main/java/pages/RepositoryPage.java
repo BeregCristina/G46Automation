@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RepositoryPage extends BasePage {
+public class RepositoryPage extends BaseAuthorizedPage {
 
     private final static String TITLE = "Repository Page";
 

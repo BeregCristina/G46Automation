@@ -3,7 +3,7 @@ package tests;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPageObject;
-import pages.ProjectPage;
+import pages.code.ProjectPage;
 
 
 public class ProjectPageTest extends BaseTest {

@@ -1,6 +1,7 @@
 package tests;
 
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,12 +41,12 @@ public class IssueCreationTest extends BaseTest {
     public void signIn() {
         page = new LoginPageObject(driver)
                 .login(System.getProperty("login"), System.getProperty("password"))
-                .openOurProject()
+                .searchProject("G46Automation")
                 .openProjectIssues();
     }
 
     @Test
-    public void checkIssueCreation() throws InterruptedException {
+    public void checkIssueCreation() {
 /*        List<String> labels = new ArrayList<>();
         labels.add("bug");
         labels.add("help wanted");
@@ -55,5 +56,11 @@ public class IssueCreationTest extends BaseTest {
         page.pressToCreateNewIssue()
                 .createNewIssue(this.title, this.body, this.labels)
                 .validateCreatedIssue(this.title, this.body, this.labels);
+    }
+
+    @After
+    public void tearDown() {
+        page.logOut2()
+            .validateLogOut();
     }
 }
