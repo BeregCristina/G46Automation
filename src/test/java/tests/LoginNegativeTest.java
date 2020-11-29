@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.NoSuchElementException;
 
 import static helpers.ColorPrinter.printMessageInYellow;
+import static helpers.FileHelper.readAuthFromFile;
 
 @RunWith(Parameterized.class)
 public class LoginNegativeTest extends BaseTest {
@@ -33,13 +34,15 @@ public class LoginNegativeTest extends BaseTest {
 
     @Parameterized.Parameters
     public static Collection<String[]> data(){
-        Collection<String[]> result = new ArrayList<>();
+/*        Collection<String[]> result = new ArrayList<>();
         result.add(new String[]{"login1", "password1"});
         result.add(new String[]{"login2", "password2"});
         result.add(new String[]{"login3", "password3"});
         result.add(new String[]{"login4", "password4"});
         result.add(new String[]{"login5", "password5"});
-        return result;
+        return result;*/
+        return readAuthFromFile("C:\\Users\\khber\\IdeaProjects\\G46Automation\\" +
+                "src\\test\\resources\\data\\authData.txt");
     }
 
 
