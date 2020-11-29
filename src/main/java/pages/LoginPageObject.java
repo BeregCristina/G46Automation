@@ -40,7 +40,7 @@ public class LoginPageObject extends BasePage {
     }
 
     public LoginPageObject loginNegative(String login, String password) {
-        printMessageInYellow("Try to Login (with INVALID credentials)...", log);
+        printMessageInYellow("Try to Login with INVALID credentials: " + login + " " + password, log);
         driver.findElement(loginField).sendKeys(login);
         driver.findElement(passwordField).sendKeys(password);
         driver.findElement(signInButton).click();
