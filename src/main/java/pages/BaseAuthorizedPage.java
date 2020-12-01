@@ -25,7 +25,12 @@ public abstract class BaseAuthorizedPage extends BasePage {
         printColorMessage("Start searching for the SPECIFIC repository....", log, Level.INFO);
         driver.findElement(searchField).click();
         driver.findElement(searchField).sendKeys(projectName);
-        webDriverWait_10.until(ExpectedConditions.elementToBeClickable(searchResults));
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //webDriverWait_10.until(ExpectedConditions.elementToBeClickable(searchResults));
         driver.findElements(searchResults).get(1).click();
         printColorMessage("Searching is finished!", log, Level.INFO);
         return new ProjectPage(driver);

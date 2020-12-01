@@ -13,7 +13,7 @@ public class RepositoryPage extends BaseAuthorizedPage {
     }
 
     private final By pomXml = By.xpath("//a[@title='pom.xml']");
-    private final By version = By.id("LC33");
+    private final By version = By.id("LC35");
 
 
     public RepositoryPage openPomXml() throws InterruptedException {

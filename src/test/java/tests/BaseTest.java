@@ -20,7 +20,7 @@ public abstract class BaseTest {
     @Before
     public void setUp() {
 
-        switch(System.getProperty("browser", "chrome")){
+        switch(System.getProperty("browser", "chrome")) {
             case "firefox":
                 //System.setProperty("webdriver.gecko.driver", "C:\\Users\\khber\\IdeaProjects\\geckodriver.exe");
                 driver = new FirefoxDriver();
@@ -39,11 +39,6 @@ public abstract class BaseTest {
                 //System.setProperty("webdriver.gecko.driver", "C:\\Users\\khber\\IdeaProjects\\geckodriver.exe");
                 driver = new FirefoxDriver();
         }
-
-
-
-
-
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

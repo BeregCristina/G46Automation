@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.BasePage;
 import pages.issues.IssuePage;
+import pages.settings.SettingsPage;
 
 import java.util.List;
 
@@ -17,8 +18,11 @@ public class ProjectPage extends BasePage {
     private final static String TITLE = "Project Page";
 
     private final By issuesTab = By.xpath("//span[@data-content=\"Issues\"]");
+    private final By settingsTab = By.xpath("//span[@data-content=\"Settings\"]");
     //private final By tabsList = By.xpath("//li[@class='d-flex']");
     private final By tabsList = By.xpath("//li[(@class='d-flex') and not(contains(@class,'Counter '))]");
+    private final By repoLink = By.xpath("//a[@data-pjax='#js-repo-pjax-container']");
+
 
     public ProjectPage(WebDriver driver) {
         super(driver, TITLE);
@@ -31,6 +35,20 @@ public class ProjectPage extends BasePage {
             Assert.fail(n.getMessage());
         }
         return new IssuePage(driver);
+    }
+
+    public SettingsPage openSettingsPage() {
+        try {
+            driver.findElement(settingsTab).click();
+        } catch (NoSuchElementException n) {
+            Assert.fail(n.getMessage());
+        }
+        return new SettingsPage(driver);
+    }
+
+    public ProjectPage validateRenaming(String expectedTitle){
+        Assert.assertTrue(driver.findElement(repoLink).getText().endsWith(expectedTitle));
+        return this;
     }
 
     //-----------------homework 14/11/2020--------------------------
