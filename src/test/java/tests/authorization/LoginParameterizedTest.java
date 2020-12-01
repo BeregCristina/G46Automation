@@ -1,4 +1,4 @@
-package tests;
+package tests.authorization;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

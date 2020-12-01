@@ -1,4 +1,4 @@
-package tests;
+package tests.authorization;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pages.LoginPageObject;
 import pages.MainPage;
+import tests.BaseTest;
 
 import java.util.ArrayList;
 import java.util.Collection;
