@@ -1,30 +1,28 @@
-package tests.settings;
+package tests.issues;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPageObject;
+import pages.issues.IssueInfoPage;
 import pages.issues.IssuePage;
-import pages.settings.SettingsPage;
 import tests.BaseTest;
 
-public class SettingsTest extends BaseTest {
+public class IssueDeletionTest extends BaseTest {
 
-    private SettingsPage page;
+    private IssuePage page;
 
     @Before
     public void signIn() {
         page = new LoginPageObject(driver)
                 .login(System.getProperty("login"), System.getProperty("password"))
-                .searchProject("G46Automation")
-                .openSettingsPage();
+                .searchProject("G46Automation").openProjectIssues();
     }
 
-    //was added 26/11/20
-    @Test
-    public void checkRepositoryRenaming(){
-        page.renameRepository("G46Automation")
-                .validateRenaming("G46Automation");
+
+    //@Test
+    public void deleteAllIssues() {
+        page.deleteAllIssues();
     }
 
     @After
@@ -32,5 +30,4 @@ public class SettingsTest extends BaseTest {
         page.logOut2()
                 .validateLogOut();
     }
-
 }

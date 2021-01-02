@@ -21,8 +21,8 @@ public abstract class BasePage {
     private final By userLabel = By.xpath("//summary[@aria-label='View profile and more']");
     private final By signOut = By.xpath("//form[@class='logout-form']/button");
 
-    private final By signInForm = By.xpath("//form[@class='home-hero-signup text-gray-dark js-signup-form js-signup-form-submit']");
-    private final By textH1 = By.xpath("//h1[@class='h000-mktg text-white lh-condensed-ultra mb-3']");
+    private final By signInForm = By.xpath("//input[@id='user_email']");
+    private final By textH1 = By.xpath("//h1[contains(@class,'h2-5-mktg-fluid h1-sm-mktg-fluid')]");
 
     protected WebDriverWait webDriverWait_10, webDriverWait_15, webDriverWait_20;
 
@@ -44,7 +44,7 @@ public abstract class BasePage {
         driver.findElement(userLabel).click();
         driver.findElement(signOut).click();
         Assert.assertTrue(driver.findElement(signInForm).isDisplayed());
-        Assert.assertEquals(driver.findElement(textH1).getText(), "Built for developers");
+        Assert.assertEquals(driver.findElement(textH1).getText(), "Where the world\nbuilds software");
         printColorMessage("Logout is finished!", log, Level.INFO);
     }
 

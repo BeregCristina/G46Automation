@@ -21,7 +21,7 @@ public class FileHelper {
         try {
             return (Files.readAllLines(Paths.get(path)));
         } catch (IOException e) {
-            LOG.error(String.format("There is a problem with file %s: %s", path, e.getMessage()));
+            LOG.error(String.format("There is a problem with file: %s", path, e.getMessage()));
             return new ArrayList<>();
         }
     }
@@ -31,6 +31,21 @@ public class FileHelper {
         List<String> lines = readLinesFromFile(path);
         for (String line : lines) {
             result.add(line.split(", "));
+        }
+        return result;
+    }
+
+    public static Collection<Object> readParamsForIssueCreationFromFile(String path) {
+        Collection<Object> result = new ArrayList<>();
+        List<String> lines = readLinesFromFile(path);
+        for (String line : lines) {
+            int k = line.lastIndexOf(';');
+            String line1 = line.substring(0,k);
+            String line2 = line.substring(k+1);
+            result.add(line1.split("; "));
+            List<String[]> lab = new ArrayList<>();
+            lab.add(line2.split(", "));
+            result.add(lab);
         }
         return result;
     }

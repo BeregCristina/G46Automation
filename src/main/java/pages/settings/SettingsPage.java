@@ -19,7 +19,9 @@ public class SettingsPage extends BaseAuthorizedPage {
 
     public ProjectPage renameRepository(String newName){
         driver.findElement(newNameField).clear();
+        log.info("Name was cleared");
         driver.findElement(newNameField).sendKeys(newName);
+        log.info("Renaming was done");
         driver.findElement(newNameApplyButton).click();
         return new ProjectPage(driver);
     }

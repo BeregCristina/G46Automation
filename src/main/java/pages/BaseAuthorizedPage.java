@@ -39,6 +39,7 @@ public abstract class BaseAuthorizedPage extends BasePage {
     public HomePage logOut2(){
         driver.findElement(userProfileButton).click();
         driver.findElement(signOut).click();
+        log.info("LogOut2 was done");
         return new HomePage(driver);
     }
 

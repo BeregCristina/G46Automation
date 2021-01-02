@@ -57,5 +57,4 @@ public class IssueInfoPage extends BasePage {
         printColorMessage("Issue is displayed correctly!", log, Level.INFO);
         return this;
     }
-
 }

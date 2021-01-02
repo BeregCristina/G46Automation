@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.BasePage;
+import pages.issues.IssueInfoPage;
 import pages.issues.IssuePage;
 import pages.settings.SettingsPage;
 
@@ -48,6 +49,7 @@ public class ProjectPage extends BasePage {
 
     public ProjectPage validateRenaming(String expectedTitle){
         Assert.assertTrue(driver.findElement(repoLink).getText().endsWith(expectedTitle));
+        log.info("Renaming validation was done");
         return this;
     }
 

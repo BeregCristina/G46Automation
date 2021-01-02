@@ -13,11 +13,12 @@ public class HomePage extends BaseAuthorizedPage {
     }
 
     //TODO There are duplicated Bys. Refactoring is needed
-    private final By titleMessage = By.xpath("//h1[@class='h000-mktg text-white lh-condensed-ultra mb-3']");
+    private final By titleMessage = By.xpath("//h1[contains(@class,'h2-5-mktg-fluid h1-sm-mktg-fluid')]");
 
     public void validateLogOut(){
         Assert.assertTrue(driver.findElement(titleMessage).isDisplayed());
-        Assert.assertEquals("Built for developers",driver.findElement(titleMessage).getText());
+        Assert.assertEquals("Where the world\n" +
+                "builds software",driver.findElement(titleMessage).getText());
     }
 
 

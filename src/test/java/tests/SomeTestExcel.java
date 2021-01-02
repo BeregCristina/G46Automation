@@ -31,6 +31,6 @@ public class SomeTestExcel {
         testData.add("Five");
 
         writeToExcelFile("C:\\Users\\khber\\IdeaProjects\\G46Automation\\src\\test\\resources\\data\\EmptyExcelFile.xlsx",
-                testData, "New sheet", 1);
+                testData, "New sheet3", 1);
     }
 }

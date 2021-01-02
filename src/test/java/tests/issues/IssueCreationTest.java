@@ -10,7 +10,7 @@ import pages.LoginPageObject;
 import pages.issues.IssuePage;
 import tests.BaseTest;
 
-import java.util.ArrayList;
+import java.lang.annotation.Repeatable;
 import java.util.Collection;
 import java.util.List;
 
@@ -46,8 +46,10 @@ public class IssueCreationTest extends BaseTest {
                 .openProjectIssues();
     }
 
+
     @Test
     public void checkIssueCreation() {
+        //VERSION WITHOUT USING EXTERNAL FILE
 /*        List<String> labels = new ArrayList<>();
         labels.add("bug");
         labels.add("help wanted");
@@ -59,9 +61,18 @@ public class IssueCreationTest extends BaseTest {
                 .validateCreatedIssue(this.title, this.body, this.labels);
     }
 
+    //HOMEWORK-28/11/2020
+    @Test
+    public void checkIssueCreationVersion2() {
+        page.pressToCreateNewIssue()
+                .createNewIssue(this.title, this.body, this.labels)
+                .validateCreatedIssue(this.title, this.body, this.labels);
+    }
+
+
     @After
     public void tearDown() {
         page.logOut2()
-            .validateLogOut();
+                .validateLogOut();
     }
 }
