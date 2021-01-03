@@ -13,7 +13,7 @@ public abstract class BaseApiTest {
     protected ResponseSpecification resSpec;
 
     @Before
-    public void setSpecs(){
+    public void setSpecs() {
         reqSpec = new RequestSpecBuilder()
                 .setBaseUri("https://api.privatbank.ua/p24api")
                 .log(LogDetail.ALL)

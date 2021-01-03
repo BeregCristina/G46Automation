@@ -1,10 +1,11 @@
-package tests.api;
+package tests.api.privat24;
 
 import io.restassured.filter.log.LogDetail;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import tests.api.BaseApiTest;
 
 import java.util.*;
 
@@ -22,7 +23,7 @@ public class PrivatCurrencyTest extends BaseApiTest {
 
 
     @Parameterized.Parameters
-    public static Collection<Object[]> data(){
+    public static Collection<Object[]> data() {
         List<Object[]> result = new ArrayList<>();
         Object[] xml11 = new Object[3];
         xml11[0] = "xml";
