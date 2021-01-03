@@ -21,7 +21,6 @@ public class IssueCreationTestParameterizedTest extends BaseTest {
 
     private String title;
     private String comment;
-    //private String labels;
     private List<String> labels;
 
     public IssueCreationTestParameterizedTest(String title, String comment, List<String> labels) {
@@ -39,8 +38,8 @@ public class IssueCreationTestParameterizedTest extends BaseTest {
     }
 
     @Parameterized.Parameters
-    public static Collection<Object> testData() {
-                /*        List<String> l1 = new ArrayList<>();
+    public static Collection<Object[]> testData() {
+/*      List<String> l1 = new ArrayList<>();
         l1.add("bug");
         List<String> l2 = new ArrayList<>();
         l2.add("documentation");

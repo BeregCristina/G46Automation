@@ -3,9 +3,7 @@ package helpers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -36,8 +34,8 @@ public class FileHelper {
         return result;
     }
 
-    public static Collection<Object> readParamsForIssueCreationFromFile(String path) {
-        Collection<Object> result = new ArrayList<>();
+    public static Collection<Object[]> readParamsForIssueCreationFromFile(String path) {
+        Collection<Object[]> result = new ArrayList<>();
         List<String> lines = readLinesFromFile(path);
         for (String line : lines) {
 
@@ -46,16 +44,13 @@ public class FileHelper {
 
             List<String> list1 = Arrays.asList(testDataThird);
             System.out.println(list1);
-            result.add(testData[0]);
-            result.add(testData[1]);
-            result.add(list1);
-/*            int k = line.lastIndexOf(';');
-            String line1 = line.substring(0,k);
-            String line2 = line.substring(k+1);
-            result.add(line1.split("; "));
-            List<String[]> lab = new ArrayList<>();
-            lab.add(line2.split(", "));
-            result.add(lab);*/
+
+            Object[] params = new Object[3];
+            params[0] = testData[0];
+            params[1] = testData[1];
+            params[2] = list1;
+
+            result.add(params);
         }
         System.out.println(result);
         return result;
