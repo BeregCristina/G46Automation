@@ -32,6 +32,7 @@ public class FileHelper {
         for (String line : lines) {
             result.add(line.split(", "));
         }
+        System.out.println(result);
         return result;
     }
 
@@ -39,14 +40,24 @@ public class FileHelper {
         Collection<Object> result = new ArrayList<>();
         List<String> lines = readLinesFromFile(path);
         for (String line : lines) {
-            int k = line.lastIndexOf(';');
+
+            String[] testData = line.split("; ");// в циклі for спочатку розбити кожен line на масив з 3х елементів (метод split("; ))
+            String[] testDataThird = testData[2].split(", "); //а потім останній елемент розбити на інший масив (line.split("; ")[2].split(", "))
+
+            List<String> list1 = Arrays.asList(testDataThird);
+            System.out.println(list1);
+            result.add(testData[0]);
+            result.add(testData[1]);
+            result.add(list1);
+/*            int k = line.lastIndexOf(';');
             String line1 = line.substring(0,k);
             String line2 = line.substring(k+1);
             result.add(line1.split("; "));
             List<String[]> lab = new ArrayList<>();
             lab.add(line2.split(", "));
-            result.add(lab);
+            result.add(lab);*/
         }
+        System.out.println(result);
         return result;
     }
 

@@ -1,12 +1,10 @@
-package tests.issues;
+package tests.ui.issues;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import pages.LoginPageObject;
-import pages.issues.IssueInfoPage;
 import pages.issues.IssuePage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
 public class IssueDeletionTest extends BaseTest {
 

@@ -1,11 +1,11 @@
-package tests.authorization;
+package tests.ui.authorization;
 
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import pages.LoginPageObject;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
 import java.util.NoSuchElementException;
 

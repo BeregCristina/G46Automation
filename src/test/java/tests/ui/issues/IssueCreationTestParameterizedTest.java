@@ -1,4 +1,4 @@
-package tests.issues;
+package tests.ui.issues;
 
 import org.junit.After;
 import org.junit.Before;
@@ -7,14 +7,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pages.LoginPageObject;
 import pages.issues.IssuePage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import static helpers.FileHelper.readAuthFromFile;
 import static helpers.FileHelper.readParamsForIssueCreationFromFile;
 
 @RunWith(Parameterized.class)
@@ -43,7 +40,7 @@ public class IssueCreationTestParameterizedTest extends BaseTest {
 
     @Parameterized.Parameters
     public static Collection<Object> testData() {
-/*        List<String> l1 = new ArrayList<>();
+                /*        List<String> l1 = new ArrayList<>();
         l1.add("bug");
         List<String> l2 = new ArrayList<>();
         l2.add("documentation");

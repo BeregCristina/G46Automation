@@ -1,4 +1,4 @@
-package tests.issues;
+package tests.ui.issues;
 
 
 import org.junit.After;
@@ -8,9 +8,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pages.LoginPageObject;
 import pages.issues.IssuePage;
-import tests.BaseTest;
+import tests.ui.BaseTest;
 
-import java.lang.annotation.Repeatable;
 import java.util.Collection;
 import java.util.List;
 
