@@ -1,0 +1,152 @@
+{
+  "definitions": {},
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "success",
+    "data",
+    "errors",
+    "warnings",
+    "info",
+    "messageCodes",
+    "errorCodes",
+    "warningCodes",
+    "infoCodes"
+  ],
+  "properties": {
+    "success": {
+      "title": "Success",
+      "type": "boolean"
+    },
+    "data": {
+      "title": "Data",
+      "type": "array",
+      "items":{
+        "title": "Items",
+        "type": "object",
+        "required": [
+          "TotalCount",
+          "Addresses"
+        ],
+        "properties": {
+          "TotalCount": {
+            "title": "Totalcount",
+            "type": "integer"
+          },
+          "Addresses": {
+            "title": "Addresses",
+            "type": "array",
+            "items":{
+              "title": "Items",
+              "type": "object",
+              "required": [
+                "Present",
+                "Warehouses",
+                "MainDescription",
+                "Area",
+                "Region",
+                "SettlementTypeCode",
+                "Ref",
+                "DeliveryCity",
+                "AddressDeliveryAllowed",
+                "StreetsAvailability",
+                "ParentRegionTypes",
+                "ParentRegionCode",
+                "RegionTypes",
+                "RegionTypesCode"
+              ],
+              "properties": {
+                "Present": {
+                  "title": "Present",
+                  "type": "string"
+                },
+                "Warehouses": {
+                  "title": "Warehouses",
+                  "type": "integer"
+                },
+                "MainDescription": {
+                  "title": "Maindescription",
+                  "type": "string"
+                },
+                "Area": {
+                  "title": "Area",
+                  "type": "string"
+                },
+                "Region": {
+                  "title": "Region",
+                  "type": "string"
+                },
+                "SettlementTypeCode": {
+                  "title": "Settlementtypecode",
+                  "type": "string"
+                },
+                "Ref": {
+                  "title": "Ref",
+                  "type": "string"
+                },
+                "DeliveryCity": {
+                  "title": "Deliverycity",
+                  "type": "string"
+                },
+                "AddressDeliveryAllowed": {
+                  "title": "Addressdeliveryallowed",
+                  "type": "boolean"
+                },
+                "StreetsAvailability": {
+                  "title": "Streetsavailability",
+                  "type": "boolean"
+                },
+                "ParentRegionTypes": {
+                  "title": "Parentregiontypes",
+                  "type": "string"
+                },
+                "ParentRegionCode": {
+                  "title": "Parentregioncode",
+                  "type": "string"
+                },
+                "RegionTypes": {
+                  "title": "Regiontypes",
+                  "type": "string"
+                },
+                "RegionTypesCode": {
+                  "title": "Regiontypescode",
+                  "type": "string"
+                }
+              }
+            }
+
+          }
+        }
+      }
+
+    },
+    "errors": {
+      "title": "Errors",
+      "type": "array"
+    },
+    "warnings": {
+      "title": "Warnings",
+      "type": "array"
+    },
+    "info": {
+      "title": "Info",
+      "type": "array"
+    },
+    "messageCodes": {
+      "title": "Messagecodes",
+      "type": "array"
+    },
+    "errorCodes": {
+      "title": "Errorcodes",
+      "type": "array"
+    },
+    "warningCodes": {
+      "title": "Warningcodes",
+      "type": "array"
+    },
+    "infoCodes": {
+      "title": "Infocodes",
+      "type": "array"
+    }
+  }
+}

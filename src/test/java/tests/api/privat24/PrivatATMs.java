@@ -22,6 +22,7 @@ public class PrivatATMs extends BaseApiTest {
                 .queryParam("address", "")
                 .queryParam("city", "Киев")
                 .contentType(ContentType.JSON)
+                .baseUri("https://api.privatbank.ua/p24api")
 
                 .when()
                 .get("/infrastructure")

@@ -62,6 +62,7 @@ public class PrivatCurrencyTest extends BaseApiTest {
                 .queryParam(this.type)
                 .queryParam("exchange")
                 .queryParam("coursid", this.id)
+                .baseUri("https://api.privatbank.ua/p24api")
 /*                .log()
                 .all(true)*/
                 .when()
